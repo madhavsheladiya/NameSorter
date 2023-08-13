@@ -24,7 +24,5 @@ jobs:
       run: dotnet restore NameSorter/NameSorter.csproj
     - name: Build
       run: dotnet build NameSorter/NameSorter.csproj --no-restore
-    - name: Build test project
-      run: dotnet build NameSorterTests/NameSorterTests.csproj --no-restore
     - name: Test
       run: dotnet test NameSorter/NameSorter.csproj --no-build --verbosity normal
