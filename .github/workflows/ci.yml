@@ -13,19 +13,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+   - name: Checkout code
+  uses: actions/checkout@v2
 
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '3.1'  # adjust this to your project's .NET version
+- name: Setup .NET Core
+  uses: actions/setup-dotnet@v1
+  with:
+    dotnet-version: '3.1'  # adjust this to your project's .NET version
 
-    - name: Restore dependencies
-      run: dotnet restore
+- name: Restore dependencies
+  run: dotnet restore
+  working-directory: NameSorter
 
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+- name: Build
+  run: dotnet build --configuration Release --no-restore
+  working-directory: NameSorter
 
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+- name: Test
+  run: dotnet test --no-restore --verbosity normal
+  working-directory: NameSorter
+
