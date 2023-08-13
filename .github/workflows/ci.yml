@@ -23,13 +23,13 @@ jobs:
 
 - name: Restore dependencies
   run: dotnet restore
-  working-directory: NameSorter
+  working-directory: ./NameSorter
 
 - name: Build
   run: dotnet build --configuration Release --no-restore
-  working-directory: NameSorter
+  working-directory: ./NameSorter
 
 - name: Test
   run: dotnet test --no-restore --verbosity normal
-  working-directory: NameSorter
+  working-directory: ./NameSorter
 
