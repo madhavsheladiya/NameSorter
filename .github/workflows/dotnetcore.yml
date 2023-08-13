@@ -13,15 +13,18 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  # Using v2 as it's the latest stable version as of now.
+      uses: actions/checkout@v2
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v2  # Updated to v2
+      uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 3.1.415
 
-    - name: Build
-      run: dotnet build --configuration Release
+    - name: Build main project
+      run: dotnet build NameSorter/NameSorter.csproj --configuration Release
+
+    - name: Build test project
+      run: dotnet build NameSorterTests/NameSorterTests.csproj --configuration Release
 
     - name: Test
-      run: dotnet test
+      run: dotnet test NameSorterTests/NameSorterTests.csproj
