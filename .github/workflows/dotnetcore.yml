@@ -1,10 +1,10 @@
-name: .NET Core Build & Test
+name: .NET Core CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -13,18 +13,15 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
-      
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '3.1.x' # Adjust this if you are using a different version
+      uses: actions/checkout@v2  # Using v2 as it's the latest stable version as of now.
 
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v2  # Updated to v2
+      with:
+        dotnet-version: 3.1.415
 
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Release
 
     - name: Test
-      run: dotnet test NameSorterTests/NameSorterTests.csproj --no-build
+      run: dotnet test
