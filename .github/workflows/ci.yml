@@ -22,14 +22,14 @@ jobs:
     dotnet-version: '3.1'  # adjust this to your project's .NET version
 
 - name: Restore dependencies
-  run: dotnet restore
-  working-directory: ./NameSorter
+  dotnet restore NameSorter/NameSorter/NameSorter.csproj
+  
 
 - name: Build
   run: dotnet build --configuration Release --no-restore
-  working-directory: ./NameSorter
+  working-directory: NameSorter/NameSorter/NameSorter.csproj
 
 - name: Test
   run: dotnet test --no-restore --verbosity normal
-  working-directory: ./NameSorter
+  working-directory: NameSorter/NameSorter/NameSorter.csproj
 
