@@ -21,8 +21,8 @@ jobs:
       with:
         dotnet-version: 3.1
     - name: Restore dependencies
-      run: dotnet restore NameSorter/NameSorter/NameSorter.csproj
+      run: dotnet restore NameSorter/NameSorter.csproj
     - name: Build
-      run: dotnet build NameSorter/NameSorter/NameSorter.csproj --no-restore
+      run: dotnet build NameSorter/NameSorter.csproj --no-restore
     - name: Test
-      run: dotnet test NameSorter/NameSorter/NameSorter.csproj --no-build --verbosity normal
+      run: dotnet test NameSorter/NameSorter.csproj --no-build --verbosity normal
