@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NameSorter": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\madha\\source\\repos\\NameSorter\\unsorted-names-list.txt"
+    }
+  }
+}
